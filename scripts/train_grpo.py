@@ -487,7 +487,7 @@ def main():
         
         # --- Handle Aliases -> 'affine_game' ---
         real_env_name = env_name
-        if env_name in ("game", "goofspiel", "affine_game"):
+        if env_name in ("game", "goofspiel", "affine_game", "gin_rummy"):
             real_env_name = "affine_game"
             print(f"Alias detected (rollout): '{env_name}' -> '{real_env_name}'")
 

@@ -25,7 +25,7 @@ def rollout_first_prompt_and_completion(prompts: list[str], trainer, max_turns: 
         "euchre": (900000000, 999999999)
     }
 
-    selected_game = "goofspiel"
+    selected_game = "gin_rummy"
     
     # --- 1. Static Initialization (Once per Rank) ---
     # We check if the function has already established a connection for this worker
@@ -87,7 +87,7 @@ def rollout_first_prompt_and_completion(prompts: list[str], trainer, max_turns: 
         
         # --- Reset Environment (POST /reset) ---
         # Reuse existing env_id, just change the game
-        payload = {"task_id": game_id, "seed": 42, "opponent": "random"}
+        payload = {"task_id": game_id, "seed": game_id, "opponent": "random"}
         
         try:
             reset_res = requests.post(f"{env_endpoint}/reset", json=payload, timeout=TIMEOUT)
