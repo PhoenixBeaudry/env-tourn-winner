@@ -261,7 +261,7 @@ def get_reward_funcs(dataset_type: dict, sample_data, has_extra_column: bool):
         
         # --- Handle Alias for 'game' -> 'affine_game' ---
         real_env_name = env_name
-        if env_name == "game" or env_name == "affine_game":
+        if env_name == "goofspiel" or env_name == "affine_game":
             real_env_name = "affine_game"
             print(f"Alias detected: '{env_name}' -> '{real_env_name}'")
 
