@@ -259,9 +259,9 @@ def get_reward_funcs(dataset_type: dict, sample_data, has_extra_column: bool):
         env_name = dataset_type["environment_name"]
         print(f"Setting up for environment task: {env_name}")
         
-        # --- Handle Alias for 'game' -> 'affine_game' ---
+        # --- Handle Aliases -> 'affine_game' ---
         real_env_name = env_name
-        if env_name == "goofspiel" or env_name == "affine_game":
+        if env_name in ("game", "goofspiel", "affine_game"):
             real_env_name = "affine_game"
             print(f"Alias detected: '{env_name}' -> '{real_env_name}'")
 
@@ -485,9 +485,9 @@ def main():
         env_name = train_request["dataset_type"]["environment_name"]
         print(f"Loading rollout function for environment: {env_name}")
         
-        # --- Handle Alias for 'game' -> 'affine_game' ---
+        # --- Handle Aliases -> 'affine_game' ---
         real_env_name = env_name
-        if env_name == "game":
+        if env_name in ("game", "goofspiel", "affine_game"):
             real_env_name = "affine_game"
             print(f"Alias detected (rollout): '{env_name}' -> '{real_env_name}'")
 
